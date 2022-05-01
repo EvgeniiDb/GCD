@@ -36,7 +36,14 @@ class SecondViewController: UIViewController {
         imageURL = URL(string: "https://www.motovationusa.com/images/product/8ceb7380-8aae-402e-8bae-ddd0ffe1b5b8_Ducati_PanigaleV2_20_Slip-on_Works_PK_1.jpg")
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        guard let url = imageURL, let imageData = try? Data(contentsOf: url) else { return }
-        self.image = UIImage(data: imageData)
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            guard let url = self.imageURL, let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.image = UIImage(data: imageData)
+            }
+           
         }
+        
     }
+}
