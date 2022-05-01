@@ -33,7 +33,7 @@ class SecondViewController: UIViewController {
     }
     
     fileprivate func fetchImage() {
-        imageURL = URL(string: "https://i.playground.ru/i/pix/1417897/image.jpg")
+        imageURL = URL(string: "https://www.motovationusa.com/images/product/8ceb7380-8aae-402e-8bae-ddd0ffe1b5b8_Ducati_PanigaleV2_20_Slip-on_Works_PK_1.jpg")
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         guard let url = imageURL, let imageData = try? Data(contentsOf: url) else { return }
